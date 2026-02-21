@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://mcjellyfish-fashion-ai-backend.hf.space"
+  baseURL: "https://mcjellyfish-fashion-ai-backend.hf.space/analyze"
 });
 
 export const analyzeImage = async (imageFile) => {
