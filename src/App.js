@@ -8,16 +8,8 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   const handleImageUpload = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
     try {
-      const response = await fetch("https://mcjellyfish-fashion-ai-backend.hf.space/analyze", {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await response.json();
+      const data = await analyzeImage(file);
 
       setMessages((prev) => [
         ...prev,
@@ -36,10 +28,9 @@ function App() {
     }
   };
 
-
   return (
     <div className="app-container">
-
+      
       {/* Chat Area */}
       <div className="flex-grow-1 overflow-auto d-flex justify-content-center">
         <div className="chat-window py-4">
@@ -56,8 +47,6 @@ function App() {
 
     </div>
   );
-
-
 }
 
 export default App;
